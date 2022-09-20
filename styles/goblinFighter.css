@@ -3,16 +3,21 @@ main {
     grid-template-columns: 1fr 2fr 2fr;
 }
 
-#player img {
+#player-section img {
     width: 100px;
 }
 
-#player {
+#player-section,
+#goblin-section {
     margin: 0 auto;
     text-align: center;
 }
 
-#goblins {
+#goblin-section {
     display: flex;
     flex-direction: column;
+}
+
+.goblin-button img {
+    width: 75px;
 }
