@@ -1,0 +1,18 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+
+#player img {
+    width: 100px;
+}
+
+#player {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#goblins {
+    display: flex;
+    flex-direction: column;
+}
