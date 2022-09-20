@@ -59,7 +59,19 @@
                     </li>
                 </ul>
             </section>
-            <section id="controls">controls</section>
+            <section id="controls">
+                <div id="info">
+                    <div id="scoreboard">
+                        <p>Goblins Defeated: <span id="goblins-defteated">8</span></p>
+                        <p id="message">You: -2 Xorg: -2 (Defeated)</p>
+                    </div>
+                </div>
+                <form id="summon-goblin-form">
+                    <input type="text" name="goblin-name" required />
+                    <button>Summon Goblin</button>
+                </form>
+                <button id="clear-battlefield">Clear Battlefield</button>
+            </section>
         </main>
     </body>
 

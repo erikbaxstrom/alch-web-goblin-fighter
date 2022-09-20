@@ -21,3 +21,9 @@ main {
 .goblin-button img {
     width: 75px;
 }
+
+#info {
+    background-color: beige;
+    padding: 5px;
+    border: 2px solid black;
+}
