@@ -12,8 +12,11 @@ let player = {
 
 /* Display Functions */
 function displayPlayer() {
-    const playerEl = renderPlayer();
-    playerSection.innerHTML = playerEl;
+    playerSection.innerHTML = '';
+    const playerEl = renderPlayer(player);
+    playerSection.append(playerEl);
+    // const playerEl = renderPlayer(player);
+    // playerSection.innerHTML = playerEl;
 }
 
 // (don't forget to call any display functions you want to run on page load!)
