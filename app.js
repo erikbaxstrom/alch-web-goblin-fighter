@@ -54,6 +54,7 @@ let goblinTypeDistrobution = [
     'goblin',
     'goblin',
 ];
+
 /* Events */
 
 summonGoblinForm.addEventListener('submit', (e) => {
@@ -104,6 +105,19 @@ function displayGoblins() {
     for (let goblin of goblins) {
         const goblinEl = renderGoblin(goblin);
         goblinList.append(goblinEl);
+
+        goblinEl.addEventListener('click', () => {
+            console.log('clicked');
+            // some logic for special message if goblin already dead
+            //set player damage from distribution array
+            //set goblin damage from distribution array
+            // update player hp
+            //update goblin hp
+            //update message w/ player and goblin hp
+            //some logic for special message if player hp <= 0 (in which case, set hp 0 )
+            //some logic for special message if goblin hp <= 0 (in which case, set it to 0)
+            //display goblins and player
+        });
     }
 }
 
