@@ -6,6 +6,7 @@ const playerSection = document.getElementById('player-section');
 const goblinList = document.getElementById('goblin-list');
 const goblinsDefeatedDisplay = document.getElementById('goblins-defeated-display');
 const messageDisplay = document.getElementById('message-display');
+const summonGoblinForm = document.getElementById('summon-goblin-form');
 /* State */
 let player = {
     hp: 1,
@@ -32,6 +33,19 @@ let goblins = [
 
 let message = 'something something something message';
 /* Events */
+
+summonGoblinForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(summonGoblinForm);
+    console.log(formData.get('goblin-name'));
+    const goblin = {
+        name: formData.get('goblin-name'),
+        hp: 5, //todo get random
+        type: 'goblin', //todo get random
+    };
+    goblins.push(goblin);
+    displayGoblins();
+});
 
 /* Display Functions */
 function displayPlayer() {
