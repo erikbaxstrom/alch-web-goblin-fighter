@@ -8,6 +8,8 @@ const goblinList = document.getElementById('goblin-list');
 const goblinsDefeatedDisplay = document.getElementById('goblins-defeated-display');
 const messageDisplay = document.getElementById('message-display');
 const summonGoblinForm = document.getElementById('summon-goblin-form');
+const clearBattlefieldButton = document.getElementById('clear-battlefield-button');
+
 /* State */
 let player = {
     hp: 1,
@@ -67,6 +69,23 @@ summonGoblinForm.addEventListener('submit', (e) => {
 
     message = `${goblin.name} joined the fray.`;
     summonGoblinForm.reset();
+    displayGoblins();
+    displayMessage();
+});
+
+clearBattlefieldButton.addEventListener('click', () => {
+    //iterate through goblins, adding live ones to stillAlive array
+    let stillAlive = [];
+    for (let goblin of goblins) {
+        if (goblin.hp > 0) {
+            stillAlive.push(goblin);
+        }
+    }
+    //assign stillAlive into goblins array
+    goblins = stillAlive;
+    //set message
+    message = 'Cleared the Battlefield of defeated Goblins';
+    //update goblin display and message display
     displayGoblins();
     displayMessage();
 });
