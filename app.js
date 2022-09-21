@@ -1,5 +1,6 @@
 /* Imports */
 import { renderPlayer, renderGoblin } from './render-utils.js';
+import { getRandomItem } from './utlis.js';
 
 /* Get DOM Elements */
 const playerSection = document.getElementById('player-section');
@@ -32,6 +33,25 @@ let goblins = [
 ];
 
 let message = 'something something something message';
+
+let goblinHpDistribution = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5];
+let goblinTypeDistrobution = [
+    'cyclops',
+    'cyclops',
+    'cyclops',
+    'tree',
+    'tree',
+    'ogre',
+    'ogre',
+    'ogre',
+    'cthulhu',
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+];
 /* Events */
 
 summonGoblinForm.addEventListener('submit', (e) => {
@@ -40,11 +60,12 @@ summonGoblinForm.addEventListener('submit', (e) => {
     console.log(formData.get('goblin-name'));
     const goblin = {
         name: formData.get('goblin-name'),
-        hp: 5, //todo get random
-        type: 'goblin', //todo get random
+        hp: getRandomItem(goblinHpDistribution),
+        type: getRandomItem(goblinTypeDistrobution),
     };
     goblins.push(goblin);
     displayGoblins();
+    summonGoblinForm.reset();
 });
 
 /* Display Functions */
