@@ -5,7 +5,7 @@ import { renderPlayer } from './render-utils.js';
 const playerSection = document.getElementById('player-section');
 /* State */
 let player = {
-    hp: 10,
+    hp: 1,
     goblinsDefeated: 8,
 };
 /* Events */
