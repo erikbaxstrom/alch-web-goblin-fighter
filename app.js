@@ -64,8 +64,11 @@ summonGoblinForm.addEventListener('submit', (e) => {
         type: getRandomItem(goblinTypeDistrobution),
     };
     goblins.push(goblin);
-    displayGoblins();
+
+    message = `${goblin.name} joined the fray.`;
     summonGoblinForm.reset();
+    displayGoblins();
+    displayMessage();
 });
 
 /* Display Functions */
