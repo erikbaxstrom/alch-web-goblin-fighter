@@ -5,6 +5,7 @@ import { renderPlayer, renderGoblin } from './render-utils.js';
 const playerSection = document.getElementById('player-section');
 const goblinList = document.getElementById('goblin-list');
 const goblinsDefeatedDisplay = document.getElementById('goblins-defeated-display');
+const messageDisplay = document.getElementById('message-display');
 /* State */
 let player = {
     hp: 1,
@@ -28,6 +29,8 @@ let goblins = [
         type: 'goblin',
     },
 ];
+
+let message = 'something something something message';
 /* Events */
 
 /* Display Functions */
@@ -51,7 +54,12 @@ function displayScore() {
     goblinsDefeatedDisplay.textContent = player.goblinsDefeated;
 }
 
+function displayMessage() {
+    messageDisplay.textContent = message;
+}
+
 // (don't forget to call any display functions you want to run on page load!)
 displayPlayer();
 displayGoblins();
 displayScore();
+displayMessage();
