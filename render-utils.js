@@ -10,6 +10,28 @@ export function renderPlayer(player) {
     const p = document.createElement('p');
     p.textContent = `${player.hp} HP`;
     div.append(p);
-    console.log(div);
     return div;
+}
+
+export function renderGoblin(goblin) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    const img = document.createElement('img');
+    const name = document.createElement('p');
+    const hp = document.createElement('p');
+    //if live. else use defeated.png
+    if (goblin.hp > 0) {
+        img.src = `./assets/goblins/${goblin.type}.png`;
+    } else {
+        img.src = './assets/goblins/defeated.png';
+    }
+    img.alt = goblin.type;
+    console.log(img.src);
+    name.textContent = goblin.name;
+    hp.textContent = `${goblin.hp} HP`;
+    button.append(img, name, hp);
+    button.classList.add('goblin-button');
+
+    li.append(button);
+    return li;
 }
