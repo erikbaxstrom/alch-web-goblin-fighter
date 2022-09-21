@@ -4,10 +4,11 @@ import { renderPlayer, renderGoblin } from './render-utils.js';
 /* Get DOM Elements */
 const playerSection = document.getElementById('player-section');
 const goblinList = document.getElementById('goblin-list');
+const goblinsDefeatedDisplay = document.getElementById('goblins-defeated-display');
 /* State */
 let player = {
     hp: 1,
-    goblinsDefeated: 8,
+    goblinsDefeated: 13,
 };
 
 let goblins = [
@@ -23,7 +24,7 @@ let goblins = [
     },
     {
         name: 'Ted',
-        hp: 3,
+        hp: 150,
         type: 'goblin',
     },
 ];
@@ -46,6 +47,11 @@ function displayGoblins() {
     }
 }
 
+function displayScore() {
+    goblinsDefeatedDisplay.textContent = player.goblinsDefeated;
+}
+
 // (don't forget to call any display functions you want to run on page load!)
 displayPlayer();
 displayGoblins();
+displayScore();
