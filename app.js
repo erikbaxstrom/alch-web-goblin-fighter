@@ -1,6 +1,6 @@
 /* Imports */
 import { renderPlayer, renderGoblin } from './render-utils.js';
-import { getRandomItem } from './utlis.js';
+import { getRandomItem, getRandomNumber } from './utlis.js';
 
 /* Get DOM Elements */
 const playerSection = document.getElementById('player-section');
@@ -108,7 +108,22 @@ function displayGoblins() {
 
         goblinEl.addEventListener('click', () => {
             console.log('clicked');
-            // some logic for special message if goblin already dead
+            if (goblin.hp === 0) {
+                message = `You: -1 from exposure to ${goblin.name}'s toxic viscera. `;
+                player.hp--;
+            } else {
+                const playerDamageReceived = 2;
+                const goblinDamageReceived = 2;
+                player.hp -= playerDamageReceived;
+                goblin.hp -= goblinDamageReceived;
+                message = `you attacked`; //todo add damages in here
+                //todo logic if dead
+            }
+
+            displayMessage();
+            displayPlayer();
+            displayGoblins();
+            displayScore();
             //set player damage from distribution array
             //set goblin damage from distribution array
             // update player hp
@@ -116,7 +131,6 @@ function displayGoblins() {
             //update message w/ player and goblin hp
             //some logic for special message if player hp <= 0 (in which case, set hp 0 )
             //some logic for special message if goblin hp <= 0 (in which case, set it to 0)
-            //display goblins and player
         });
     }
 }
