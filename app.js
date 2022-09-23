@@ -12,8 +12,8 @@ const clearBattlefieldButton = document.getElementById('clear-battlefield-button
 
 /* State */
 let player = {
-    hp: 1,
-    goblinsDefeated: 13,
+    hp: 10,
+    goblinsDefeated: 0,
 };
 
 let goblins = [
@@ -24,12 +24,12 @@ let goblins = [
     },
     {
         name: 'Xorg',
-        hp: 0,
+        hp: 2,
         type: 'tree',
     },
     {
         name: 'Ted',
-        hp: 150,
+        hp: 5,
         type: 'goblin',
     },
 ];
@@ -62,7 +62,6 @@ const playerDamageDistribution = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5];
 summonGoblinForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(summonGoblinForm);
-    // console.log(formData.get('goblin-name'));
     const goblin = {
         name: formData.get('goblin-name'),
         hp: getRandomItem(goblinHpDistribution),
@@ -109,7 +108,6 @@ function displayGoblins() {
         goblinList.append(goblinEl);
 
         goblinEl.addEventListener('click', () => {
-            // console.log('clicked');)
             if (player.hp === 0) {
                 message = "No more fighting. You've been defeated. ";
             } else {

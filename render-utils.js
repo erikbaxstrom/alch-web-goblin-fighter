@@ -26,7 +26,6 @@ export function renderGoblin(goblin) {
         img.src = './assets/goblins/defeated.png';
     }
     img.alt = goblin.type;
-    console.log(img.src);
     name.textContent = goblin.name;
     hp.textContent = `${goblin.hp} HP`;
     button.append(img, name, hp);
