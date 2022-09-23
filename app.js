@@ -1,6 +1,6 @@
 /* Imports */
 import { renderPlayer, renderGoblin } from './render-utils.js';
-import { getRandomItem, getRandomNumber } from './utlis.js';
+import { getRandomItem } from './utlis.js';
 
 /* Get DOM Elements */
 const playerSection = document.getElementById('player-section');
