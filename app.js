@@ -110,31 +110,35 @@ function displayGoblins() {
 
         goblinEl.addEventListener('click', () => {
             // console.log('clicked');)
-            if (goblin.hp === 0) {
-                message = `You: -1 from exposure to ${goblin.name}'s toxic viscera. `;
-                player.hp--;
-                if (player.hp <= 0) {
-                    player.hp = 0; //don't let hp go below zero
-                    message += ` You were defeated by ${goblin.name}`;
-                }
+            if (player.hp === 0) {
+                message = "No more fighting. You've been defeated. ";
             } else {
-                const playerDamageReceived = getRandomItem(goblinDamageDistribution); //todo get from probability distribution
-                const goblinDamageReceived = getRandomItem(playerDamageDistribution);
-                player.hp -= playerDamageReceived;
-                goblin.hp -= goblinDamageReceived;
-                message = `You: -${playerDamageReceived}  ${goblin.name}: -${goblinDamageReceived}`;
-                if (goblin.hp <= 0 && player.hp <= 0) {
-                    message += ` You and ${goblin.name} defeated each other.`;
-                    goblin.hp = 0;
-                    player.hp = 0;
-                } else {
-                    if (goblin.hp <= 0) {
-                        goblin.hp = 0; //don't let hp go below zero
-                        message += ` You defeated ${goblin.name}`;
-                    }
+                if (goblin.hp === 0) {
+                    message = `You: -1 from exposure to ${goblin.name}'s toxic viscera. `;
+                    player.hp--;
                     if (player.hp <= 0) {
                         player.hp = 0; //don't let hp go below zero
                         message += ` You were defeated by ${goblin.name}`;
+                    }
+                } else {
+                    const playerDamageReceived = getRandomItem(goblinDamageDistribution); //todo get from probability distribution
+                    const goblinDamageReceived = getRandomItem(playerDamageDistribution);
+                    player.hp -= playerDamageReceived;
+                    goblin.hp -= goblinDamageReceived;
+                    message = `You: -${playerDamageReceived}  ${goblin.name}: -${goblinDamageReceived}`;
+                    if (goblin.hp <= 0 && player.hp <= 0) {
+                        message += ` You and ${goblin.name} defeated each other.`;
+                        goblin.hp = 0;
+                        player.hp = 0;
+                    } else {
+                        if (goblin.hp <= 0) {
+                            goblin.hp = 0; //don't let hp go below zero
+                            message += ` You defeated ${goblin.name}`;
+                        }
+                        if (player.hp <= 0) {
+                            player.hp = 0; //don't let hp go below zero
+                            message += ` You were defeated by ${goblin.name}`;
+                        }
                     }
                 }
             }
