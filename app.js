@@ -130,10 +130,12 @@ function displayGoblins() {
                         message += ` You and ${goblin.name} defeated each other.`;
                         goblin.hp = 0;
                         player.hp = 0;
+                        player.goblinsDefeated += 1;
                     } else {
                         if (goblin.hp <= 0) {
                             goblin.hp = 0; //don't let hp go below zero
                             message += ` You defeated ${goblin.name}`;
+                            player.goblinsDefeated += 1;
                         }
                         if (player.hp <= 0) {
                             player.hp = 0; //don't let hp go below zero
