@@ -76,18 +76,15 @@ summonGoblinForm.addEventListener('submit', (e) => {
 });
 
 clearBattlefieldButton.addEventListener('click', () => {
-    //iterate through goblins, adding live ones to stillAlive array
     let stillAlive = [];
     for (let goblin of goblins) {
         if (goblin.hp > 0) {
             stillAlive.push(goblin);
         }
     }
-    //assign stillAlive into goblins array
     goblins = stillAlive;
     //set message
     message = 'Cleared the Battlefield of defeated Goblins';
-    //update goblin display and message display
     displayGoblins();
     displayMessage();
 });
@@ -119,7 +116,7 @@ function displayGoblins() {
                         message += ` You were defeated by ${goblin.name}`;
                     }
                 } else {
-                    const playerDamageReceived = getRandomItem(goblinDamageDistribution); //todo get from probability distribution
+                    const playerDamageReceived = getRandomItem(goblinDamageDistribution);
                     const goblinDamageReceived = getRandomItem(playerDamageDistribution);
                     player.hp -= playerDamageReceived;
                     goblin.hp -= goblinDamageReceived;
@@ -147,13 +144,6 @@ function displayGoblins() {
             displayPlayer();
             displayGoblins();
             displayScore();
-            //set player damage from distribution array
-            //set goblin damage from distribution array
-            // update player hp
-            //update goblin hp
-            //update message w/ player and goblin hp
-            //some logic for special message if player hp <= 0 (in which case, set hp 0 )
-            //some logic for special message if goblin hp <= 0 (in which case, set it to 0)
         });
     }
 }
@@ -166,7 +156,6 @@ function displayMessage() {
     messageDisplay.textContent = message;
 }
 
-// (don't forget to call any display functions you want to run on page load!)
 displayPlayer();
 displayGoblins();
 displayScore();
